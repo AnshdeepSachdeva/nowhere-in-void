@@ -1,0 +1,259 @@
+/* Common CSS */
+@font-face {
+  font-family: 'Orbitron';
+  src: url('assets/fonts/Orbitron/orbitron.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  font-family: Roboto, sans-serif;
+}
+
+/* Cover Screen CSS */
+#coverBackground {
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background-color: white;
+}
+
+#gameTitle {
+  background-color: transparent;
+  color: black;
+  width: 80%;
+  font-size: 7vw;
+  font-weight: 600;
+  letter-spacing: 0px;
+  margin: 5% auto 0 auto;
+  text-align: center;
+  font-family: 'Orbitron', sans-serif;
+}
+
+#rules {
+  height: 22%;
+  width: 750px;
+  margin: 8% auto 0 auto;
+  padding: 0 20px 20px 0;
+  border-radius: 20px;
+  font-size: 1.11vw;
+  line-height: 1.55vw;
+  color: black;
+  list-style:disc;
+  border: 4px solid black;
+} 
+
+#howToPlay{
+  font-size: 1.5vw;
+  font-weight: 600;
+  padding: 10px 0 10px 20px;
+  border-radius: 15px 15px 0 0;
+  position:relative;
+  width: 100%;
+  color: white;
+  background-color: black;
+}
+
+#startGame {
+  cursor: pointer;
+  font-size: 2.8vw;
+  text-align: center;
+  border-radius: 20px;
+  width: 500px;
+  padding: 20px;
+  margin: 8% auto 0 auto;
+  background-color: white;
+  color: black;
+  font-weight: 700;
+  border: 4px solid black;
+  font-family: 'Orbitron', sans-serif;
+  animation: bg-transition 2.7s ease-in-out infinite;
+}
+
+
+
+#startGame:hover {
+  color: white;
+  background-color: black;
+  animation:none;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.overlay {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.game-over-text {
+  background-color: transparent;
+  color: white;
+  width: 80%;
+  font-size: 7vw;
+  font-weight: 600;
+  letter-spacing: 0px;
+  margin: 5% auto 0 auto;
+  text-align: center;
+  font-family: 'Orbitron', sans-serif;
+  margin:auto;
+}
+
+.restart-text {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 20px;
+}
+
+
+
+@keyframes bg-transition {
+  0% {
+    transform: scale(1.05);
+  }
+  50% {
+    transform: scale(0.95);
+  }
+  100% {
+    transform: scale(1.05);
+  }
+}
+
+/* Game CSS */
+
+.message {
+  padding: 20px;
+  margin-bottom: 10px;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  font-size: 1.2vw;
+  border-radius: 5px;
+}
+  
+#inventory {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  background-color: white;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+#inventory img {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+  vertical-align: middle;
+  filter: grayscale(100%);
+}
+
+#inventory .highlight img {
+  filter: none;
+}
+
+#inventory .disabled img {
+  filter: grayscale(100%);
+}
+
+#inventory .item {
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+
+#inventory .item p {
+  margin: 0;
+}
+
+#inventory .item .coin-count {
+  margin-left: auto;
+}
+
+#inventory .item .coin-count img {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+  vertical-align: middle;
+}
+
+.upgradeButton:hover {
+  cursor: pointer;
+}
+
+/* component styles */
+#gameStatusContainer {
+  display: none;
+  position: fixed;
+  border-radius: 10px;
+  top: 40px;
+  right: 30px;
+  background-color: rgba(0,0,0,1);
+  padding: 10px;
+}
+
+#levelInfo {
+  font-size: 24px;
+  font-weight: bold;
+  border-radius: 10px;
+  margin: 1px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(20,20,20,0.7);
+  color: white;
+  padding: 5px;
+}
+
+#timer {
+  font-size: 36px;
+  text-align: center;
+  font-weight: bold;
+  margin: 0 0 1px 0;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 5px;
+}
+
+#badgesInfo {
+  display: flex;
+  justify-content: space-between;
+  margin: 1px 0px 0 0px;
+  font-weight: bold;
+  padding-top: 0px;
+}
+
+#tokenImg, #coinImg, #keyImg { 
+  height: 28px;
+  width: 28px;
+  margin-right: 5px;
+  vertical-align: middle;
+}
+
+#coinsContainer, #keysContainer, #tokensContainer {
+  background-color: rgba(255, 255, 255, 0.9);
+  font-size: 25px;
+  padding: 10px;
+  display: flex;
+  font-weight: bold;
+  text-align: center;
+  justify-content: center;
+}
+
