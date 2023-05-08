@@ -1,6 +1,6 @@
 # Nowhere in Void - 3D Maze Game
 
-Welcome to **Nowhere in Void**, a 3D Maze Game built in JavaScript using the Three.js library. Get ready to immerse yourself in a challenging and thrilling adventure. This game will test your navigation skills, and reflexes as you try to find your way through intricate mazes, collect keys, unlock abilities, and reach the portal to advance to the next level.
+Welcome to **Nowhere in Void - a 3D Maze Game** built in JavaScript using the Three.js library. Get ready to immerse yourself in a challenging and thrilling adventure. This game will test your navigation skills, and reflexes as you try to find your way through intricate mazes, collect keys, unlock abilities, and reach the portal to advance to the next level.
 
 ## Game Rules
 1. **Movement Controls** : Use the following keys to navigate through the maze:
