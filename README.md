@@ -39,9 +39,6 @@ Nowhere In Void is compatible with most modern web browsers, including:
 
 For the best performance, it is recommended to use the latest version of your preferred web browser.
 
-## Credits
-The **Nowhere In Void - A 3D Maze Game** is developed by Anshdeep Singh as a project for learning purposes. It utilizes the power of the Three.js library to create an immersive gaming experience.
-
 ## Feedback and Bug Reporting
 If you encounter any issues while playing the game or have suggestions for improvement, please submit them to the GitHub repository's [issue tracker](https://github.com/AnshdeepSachdeva/nowhereinvoid/issues). Your feedback is greatly appreciated, and it will help make the game even better.
 
@@ -49,4 +46,4 @@ If you encounter any issues while playing the game or have suggestions for impro
 This game is developed using the Three.js library, an incredible open-source 3D library that makes it easy to create and display animated 3D computer graphics in 
 b browsers. I extend our gratitude to the creators and contributors of Three.js for providing such a powerful tool.
 
-I hope you enjoy playing the game and have fun exploring the challenging mazes!
+**I hope you enjoy playing the game and have fun exploring the challenging maze game!**
