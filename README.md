@@ -40,7 +40,7 @@ Nowhere In Void is compatible with most modern web browsers, including:
 For the best performance, it is recommended to use the latest version of your preferred web browser.
 
 ## Feedback and Bug Reporting
-If you encounter any issues while playing the game or have suggestions for improvement, please submit them to the GitHub repository's [issue tracker](https://github.com/AnshdeepSachdeva/nowhereinvoid/issues). Your feedback is greatly appreciated, and it will help make the game even better.
+If you encounter any issues while playing the game or have suggestions for improvement, please submit them to the GitHub repository's [issue tracker](https://github.com/AnshdeepSachdeva/nowhere-in-void/issues). Your feedback is greatly appreciated, and it will help make the game even better.
 
 ## Acknowledgments
 This game is developed using the Three.js library, an incredible open-source 3D library that makes it easy to create and display animated 3D computer graphics in 
