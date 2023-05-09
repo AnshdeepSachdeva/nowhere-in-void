@@ -1,7 +1,7 @@
 /* Common CSS */
 @font-face {
   font-family: 'Orbitron';
-  src: url('assets/fonts/Orbitron/orbitron.ttf') format('truetype');
+  src: url('../fonts/Orbitron/orbitron.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }

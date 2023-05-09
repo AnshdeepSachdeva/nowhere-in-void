@@ -26,7 +26,7 @@ To play Nowhere in Void, simply visit the game's official website at https://rec
 1. **3D Maze Environment:** The game provides an immersive 3D environment using Three.js, allowing you to navigate through the maze from a first-person perspective.
 2. **Randomized Mazes:** Each time you start a new game, the maze is generated randomly, ensuring a unique experience every time you play.
 3. **Abilities:** The game includes an abilities that helps you navigate and move through the maze more effectively.
-4. **Smooth Controls:** Use the arrow keys or WASD keys to move your character seamlessly through the maze.
+4. **Smooth Controls:** Use W,A,S,D keys to move your character seamlessly through the maze.
 5. **Atmospheric Graphics and Sound:** Enjoy the visually appealing graphics and atmospheric sound effects that enhance the overall gaming experience.
 
 ## Compatibility
