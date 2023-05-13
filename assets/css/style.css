@@ -73,8 +73,6 @@ html, body {
   animation: bg-transition 2.7s ease-in-out infinite;
 }
 
-
-
 #startGame:hover {
   color: white;
   background-color: black;

@@ -18,6 +18,7 @@ let player = new Player(camera)
 const renderer = new THREE.WebGLRenderer({ antialias: true });
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
+renderer.domElement.style.display = 'none';
 
 // Create a cube
 const cubeGeometry = new THREE.BoxGeometry(1, 1, 1);
@@ -45,7 +46,6 @@ let inventoryArray = [];
 
 // Add event listeners for keyboard input
 document.addEventListener('keydown', onKeyDown);
-
 document.addEventListener('keyup', onKeyUp);
 
 // Load skybox texture
@@ -65,14 +65,10 @@ const mapImages = ['assets/ability-icons/map/map.png', 'assets/ability-icons/map
 const speedImages = ['assets/ability-icons/speed/speed.png', 'assets/ability-icons/speed/2speed.png', 'assets/ability-icons/speed/3speed.png'];
 
 let hasClicked = false;
-
-
 let tabRequest = false;
 let popupEnabled = false;
 
 const coverBackground = document.getElementById('coverBackground');
-
-
 
 let g = false
 
@@ -157,6 +153,7 @@ startGame.addEventListener('click', function (event) {
   if(!popupEnabled){
     coverBackground.style.display = "none";
     if (!hasClicked) {
+        renderer.domElement.style.display = 'block';
         hasClicked = true;
         animate();
         initializeGame();
@@ -172,6 +169,7 @@ document.addEventListener('click', function (event) {
   if(!popupEnabled){
     coverBackground.style.display = "none";
     if (!hasClicked) {
+        renderer.domElement.style.display = 'block';
         hasClicked = true;
         animate();
         initializeGame();
@@ -271,27 +269,30 @@ function jump() {
 function onKeyDown(event) {
   switch (event.code) {
     case 'KeyW':
+    case 'ArrowUp':
       moveForward = true;
       break;
     case 'KeyA':
+    case 'ArrowLeft':
       moveLeft = true;
       break;
     case 'KeyS':
+    case 'ArrowDown':
       moveBackward = true;
       break;
     case 'KeyD':
+    case 'ArrowRight':
       moveRight = true;
       break;
     case 'Space':
       if (!isJumping) {
         jump(camera);
-
       }
       break;
     case 'Tab':
-        if(hasClicked) {
-            togglePopup();
-        }
+      if(hasClicked) {
+        togglePopup();
+      }
   }
   // prevent default tab behavior
   if (event.code === 'Tab') {
@@ -314,7 +315,7 @@ function onKeyUp(event) {
       moveRight = false;
       break;
     case 'Digit2':
-      if(player.coinsCount >= 4&&(player.bMap.level>0||player.bMap.u>0)){
+      if(player.coinsCount >= 4 && (player.bMap.level > 0 || player.bMap.u > 0)) {
         player.coinsCount -= 4;
         player.uMap = true;
         mazeBoosterActivation()
@@ -329,7 +330,7 @@ function onKeyUp(event) {
       updateInventory(inventoryArray,player.coinsCount)
       break
     case 'Digit1':
-      if(player.coinsCount >= 3&&(player.bSpeed.level>0||player.bSpeed.u>0)){
+      if(player.coinsCount >= 3 && (player.bSpeed.level > 0 || player.bSpeed.u > 0)) {
         player.coinsCount -= 3;
         player.uSpeed = true;
         for(i in inventoryArray){
