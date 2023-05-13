@@ -51,18 +51,18 @@ document.addEventListener('keyup', onKeyUp);
 // Load skybox texture
 const loader = new THREE.CubeTextureLoader();
 const texture = loader.load([
-  '../images/gradient.png',
-  '../images/gradient.png',
-  '../images/gradient.png',
-  '../images/gradient.png',
-  '../images/gradient.png',
-  '../images/gradient.png',
+  'assets/images/gradient.png',
+  'assets/images/gradient.png',
+  'assets/images/gradient.png',
+  'assets/images/gradient.png',
+  'assets/images/gradient.png',
+  'assets/images/gradient.png',
 ]);
 
 // Set the skybox texture as the scene's background
 
-const mapImages = ['../ability-icons/map/map.png', '../ability-icons/map/2map.png', '../ability-icons/map/3map.png'];
-const speedImages = ['../ability-icons/speed/speed.png', '../ability-icons/speed/2speed.png', '../ability-icons/speed/3speed.png'];
+const mapImages = ['assets/ability-icons/map/map.png', 'assets/ability-icons/map/2map.png', 'assets/ability-icons/map/3map.png'];
+const speedImages = ['assets/ability-icons/speed/speed.png', 'assets/ability-icons/speed/2speed.png', 'assets/ability-icons/speed/3speed.png'];
 
 let hasClicked = false;
 
@@ -110,26 +110,25 @@ let velocity = new THREE.Vector3(0, 0, 0);
 let t=0
 let endpoint = []
 
-let nukeSound = new Audio('../sound/nuke.mp3');
+let nukeSound = new Audio('assets/sound/nuke.mp3');
 nukeSound.volume = 0.7
 nukeSound.load()
 
-let backgroundMusic = new Audio('../sound/ambience.mp3');
+let backgroundMusic = new Audio('assets/sound/ambience.mp3');
 backgroundMusic.load()
 backgroundMusic.loop = true
 backgroundMusic.playbackRate = 1
 backgroundMusic.volume = 0.3
 
-let keySound = new Audio('../sound/coin.mp3');
+let keySound = new Audio('assets/sound/coin.mp3');
 keySound.load()
 
-let boxSound = new Audio('../sound/box.wav');
+let boxSound = new Audio('assets/sound/box.wav');
 boxSound.playbackRate = 1
 boxSound.volume = 0.3
 boxSound.load()
 
-
-let portalSound = new Audio('../sound/portal.mp3');
+let portalSound = new Audio('assets/sound/portal.mp3');
 portalSound.playbackRate = 1.3
 portalSound.load()
 
@@ -590,7 +589,7 @@ function boxOpening() {
           player.bMap.level += 1
           firstMessage.map = true
           showMessages("You have unlocked maps ability! \n press 2 to activate the ability","#fff")
-          let obj = { name: 'Map', image: '../ability-icons/map/map.png', cost: 4, no: 2, activated: false,level :1}
+          let obj = { name: 'Map', cost: 4, no: 2, activated: false,level :1}
           inventoryArray.push(obj)
           updateInventory(inventoryArray,player.coinsCount)
         }
@@ -606,7 +605,7 @@ function boxOpening() {
           player.bSpeed.level +=1
           firstMessage.speed = true
           showMessages("You have unlocked the speed ability! \n press 1 to activate the ability","#fff")
-          let obj = { name: 'Speed', image: '../ability-icons/speed/speed.png', cost: 3, no: 1, activated: false,level :1}
+          let obj = { name: 'Speed', cost: 3, no: 1, activated: false,level :1}
           inventoryArray.push(obj)
           updateInventory(inventoryArray,player.coinsCount)
         }
@@ -636,7 +635,7 @@ function boxOpening() {
           player.bMap.level += 1
           firstMessage.map = true
           showMessages("You have unlocked maps ability! \n press 2 to activate the ability","#fff")
-          let obj = { name: 'Map', image: '../ability-icons/map/map.png', cost: 4, no: 2, activated: false,level :1}
+          let obj = { name: 'Map', cost: 4, no: 2, activated: false,level :1}
           inventoryArray.push(obj)
           updateInventory(inventoryArray,player.coinsCount)
         }
@@ -652,7 +651,7 @@ function boxOpening() {
             player.bSpeed.level +=1
             firstMessage.speed = true
             showMessages("You have unlocked the speed ability! \n press 1 to activate the ability","#fff")
-            let obj = { name: 'Speed', image: '../ability-icons/speed/speed.png', cost: 3, no: 1, activated: false,level :1}
+            let obj = { name: 'Speed', cost: 3, no: 1, activated: false,level :1}
             inventoryArray.push(obj)
             updateInventory(inventoryArray,player.coinsCount)
           }
@@ -1079,9 +1078,9 @@ function updateInventory(inventoryArray, money) {
     // Grayscale the item image if the player cannot afford it
     if (item.cost > money) {
       if (item.name === 'Map') {
-          itemImg.src = '../ability-icons/map/map0.png';
+          itemImg.src = 'assets/ability-icons/map/map.png';
         } else if (item.name === 'Speed') {
-          itemImg.src = '../ability-icons/speed/speed0.png';
+          itemImg.src = 'assets/ability-icons/speed/speed.png';
         }
     }
 
@@ -1104,7 +1103,7 @@ function updateInventory(inventoryArray, money) {
     itemCost.style.justifyContent = 'center';
 
     const coinImg = document.createElement('img');
-    coinImg.src = '../icons/coin.svg';
+    coinImg.src = 'assets/icons/coin.svg';
     coinImg.style.filter = "grayscale(100%)"
     coinImg.style.width = '15px';
     coinImg.style.height = '15px';
@@ -1207,9 +1206,9 @@ function showAbilitiesPopup() {
     const upgradeButton = document.createElement('button');
     const level = ability.level;
     if (level === 1) {
-      upgradeButton.innerHTML = ` Upgrade <img src="../icons/coin.svg" alt="coin" height="16px" style="border-radius: 50%; -webkit-filter:grayscale(100%); vertical-align: middle; margin-top: -4px;"> ${upgradeCosts[0]} <img src="../icons/upgrade.svg" alt="upgrade tokens" height="16px" style="border-radius: 50%;filter: grayscale(100%); -webkit-filter: grayscale(100%); vertical-align: middle; margin-top: -4px;"> ${upgradeTokensReq[0]}`;
+      upgradeButton.innerHTML = ` Upgrade <img src="assets/icons/coin.svg" alt="coin" height="16px" style="border-radius: 50%; -webkit-filter:grayscale(100%); vertical-align: middle; margin-top: -4px;"> ${upgradeCosts[0]} <img src="assets/icons/upgrade.svg" alt="upgrade tokens" height="16px" style="border-radius: 50%;filter: grayscale(100%); -webkit-filter: grayscale(100%); vertical-align: middle; margin-top: -4px;"> ${upgradeTokensReq[0]}`;
     } else if (level === 2) {
-      upgradeButton.innerHTML = ` Upgrade <img src="../icons/coin.svg" alt="coin" height="16px" style="border-radius: 50%; -webkit-filter:grayscale(100%); vertical-align: middle; margin-top: -4px;"> ${upgradeCosts[1]} <img src="../icons/upgrade.svg" alt="upgrade tokens" height="16px" style="border-radius: 50%;filter: grayscale(100%); -webkit-filter: grayscale(100%); vertical-align: middle; margin-top: -4px;"> ${upgradeTokensReq[1]}`;
+      upgradeButton.innerHTML = ` Upgrade <img src="assets/icons/coin.svg" alt="coin" height="16px" style="border-radius: 50%; -webkit-filter:grayscale(100%); vertical-align: middle; margin-top: -4px;"> ${upgradeCosts[1]} <img src="assets/icons/upgrade.svg" alt="upgrade tokens" height="16px" style="border-radius: 50%;filter: grayscale(100%); -webkit-filter: grayscale(100%); vertical-align: middle; margin-top: -4px;"> ${upgradeTokensReq[1]}`;
     } else if (level === 3) {
       upgradeButton.textContent = 'Max Level';
       upgradeButton.disabled = true;
