@@ -40,7 +40,7 @@ Nowhere In Void is compatible with most modern web browsers, including:
 For the best performance, it is recommended to use the latest version of your preferred web browser.
 
 ## About the Author
-**My name is Anshdeep Singh** and I'm the developer behind this game. I am 12th-grade student. I developed this game during 2023 summer holidays to explore game development and further enhance my coding skills.
+**My name is Anshdeep Singh** and I'm the developer behind this game. I am 12th-grade student. I developed this game during 2023 Summer Holidays to explore game development and further enhance my coding skills.
 
 This was a wonderful learning opportunity for me to familiarize myself with new techniques and technologies. It was my first experience of conceptualizing and building a game from scratch.
 
