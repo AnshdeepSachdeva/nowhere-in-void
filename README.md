@@ -1,6 +1,6 @@
 # Nowhere in Void - 3D Maze Game
 
-Welcome to **Nowhere in Void - a 3D Maze Game** built in JavaScript using the Three.js library. Get ready to immerse yourself in a challenging and thrilling adventure. This game will test your navigation skills, and reflexes as you try to find your way through intricate mazes, collect keys, unlock abilities, and reach the portal to advance to the next level.
+Welcome to **Nowhere in Void - a 3D Maze Game** for Desktop web users built in JavaScript using the Three.js library. Get ready to immerse yourself in a challenging and thrilling adventure. This game will test your navigation skills, and reflexes as you try to find your way through intricate mazes, collect keys, unlock abilities, and reach the portal to advance to the next level.
 
 ## Game Rules
 1. **Movement Controls** : Use the following keys to navigate through the maze:
@@ -38,6 +38,15 @@ Nowhere In Void is compatible with most modern web browsers, including:
 - Microsoft Edge (latest version)
 
 For the best performance, it is recommended to use the latest version of your preferred web browser.
+
+## About the Author
+**My name is Anshdeep Singh** and I'm the developer behind this game. I am 12th-grade student. I developed this game during 2023 summer holidays to explore game development and further enhance my coding skills.
+
+This was a wonderful learning opportunity for me to familiarize myself with new techniques and technologies. It was my first experience of conceptualizing and building a game from scratch.
+
+I am passionate about coding, gaming, and technology, and this project was the perfect fusion of all three. While it started as a summer project, it quickly became a labor of love. I have put countless hours into designing, coding, debugging, and refining the game to give you the best gaming experience possible.
+
+I am always eager to learn and improve, and I am open to feedback and suggestions. I'm looking forward to hearing from you, and I hope you enjoy playing the game as much as I enjoyed developing it!
 
 ## Feedback and Bug Reporting
 If you encounter any issues while playing the game or have suggestions for improvement, please submit them to the GitHub repository's [issue tracker](https://github.com/AnshdeepSachdeva/nowhere-in-void/issues). Your feedback is greatly appreciated, and it will help make the game even better.
