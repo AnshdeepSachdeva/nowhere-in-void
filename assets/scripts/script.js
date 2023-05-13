@@ -1156,112 +1156,130 @@ function showAbilitiesPopup() {
   popup.style.zIndex = '999';
 
 
-  // Add title to popup
-  const title = document.createElement('div');
-  title.style.fontSize = '30px'
-  title.textContent = 'Abilities List';
-  title.style.textAlign = 'center';
-  popup.appendChild(title);
-    
+  if (!inventoryArray || inventoryArray.length === 0) {
+    const noAbilitiesAvailable = document.createElement('div');
+    noAbilitiesAvailable.style.marginTop = '20%';
+    noAbilitiesAvailable.style.textAlign = 'center';
 
-  // Add ability list to popup
-  const abilityList = document.createElement('ul');
-  abilityList.style.listStyleType = 'none';
-  abilityList.style.margin = '0';
-  abilityList.style.padding = '0';
-  abilityList.style.height = '80%';
-  abilityList.style.overflow = 'auto';
-
-
-  // Loop through inventoryArray and add abilities to list
-  for (let i = 0; i < inventoryArray.length; i++) {
-    const ability = inventoryArray[i];
-    const abilityItem = document.createElement('li');
-    abilityItem.style.display = 'flex';
-    abilityItem.style.alignItems = 'center';
-    abilityItem.style.margin = '10px 0';
+    const upgradeImage = document.createElement('img');
+    upgradeImage.src = "assets/icons/upgrade.svg";
+    upgradeImage.style.width = "50px";
     
-    // Add image to ability item
-    const imageWrapper = document.createElement('div');
-    imageWrapper.style.marginRight = '20px';
-    const image = document.createElement('img');
-    if (ability.name === 'Speed') {
-      image.src = speedImages[ability.level - 1];
-    } else if (ability.name === 'Map') {
-      image.src = mapImages[ability.level - 1];
-    }
-    image.style.width = '50px';
-    image.style.height = '50px';
-    imageWrapper.appendChild(image);
-    abilityItem.appendChild(imageWrapper);
-    
-    // Add ability name to ability item
-    const abilityName = document.createElement('div');
-    abilityName.textContent = ability.name;
-    abilityName.style.fontSize = '20px';
-    abilityItem.appendChild(abilityName);
-    
-    
-    
-    // Add upgrade button to ability item
-    const upgradeButton = document.createElement('button');
-    const level = ability.level;
-    if (level === 1) {
-      upgradeButton.innerHTML = ` Upgrade <img src="assets/icons/coin.svg" alt="coin" height="16px" style="border-radius: 50%; -webkit-filter:grayscale(100%); vertical-align: middle; margin-top: -4px;"> ${upgradeCosts[0]} <img src="assets/icons/upgrade.svg" alt="upgrade tokens" height="16px" style="border-radius: 50%;filter: grayscale(100%); -webkit-filter: grayscale(100%); vertical-align: middle; margin-top: -4px;"> ${upgradeTokensReq[0]}`;
-    } else if (level === 2) {
-      upgradeButton.innerHTML = ` Upgrade <img src="assets/icons/coin.svg" alt="coin" height="16px" style="border-radius: 50%; -webkit-filter:grayscale(100%); vertical-align: middle; margin-top: -4px;"> ${upgradeCosts[1]} <img src="assets/icons/upgrade.svg" alt="upgrade tokens" height="16px" style="border-radius: 50%;filter: grayscale(100%); -webkit-filter: grayscale(100%); vertical-align: middle; margin-top: -4px;"> ${upgradeTokensReq[1]}`;
-    } else if (level === 3) {
-      upgradeButton.textContent = 'Max Level';
-      upgradeButton.disabled = true;
-      upgradeButton.style.backgroundColor = 'grey';
-    }
+    const notAvailableMessage = document.createElement('span');
+    notAvailableMessage.textContent = " Abilities Not Available"
+    notAvailableMessage.style.fontSize = "3em";
+    notAvailableMessage.style.verticalAlign = 'text-bottom';
 
-    //upgradeButton.style.backgroundColor = '#4C4C4c';
-    upgradeButton.style.border = '3px solid black'
-    upgradeButton.style.color = 'black';
-    upgradeButton.style.padding = '8px 12px';
-    upgradeButton.style.textAlign = 'center';
-    upgradeButton.style.textDecoration = 'none';
-    upgradeButton.style.display = 'inline-block';
-    upgradeButton.style.fontSize = '16px';
-    upgradeButton.style.marginLeft = '20px'
-    upgradeButton.style.right = '150px'
-    upgradeButton.classList.add("upgradeButton")
-    upgradeButton.style.borderRadius = '10px'
-    abilityItem.appendChild(upgradeButton);
-  
-    upgradeButton.onclick = function() {
-      if (player.tokensCount >= upgradeTokensReq[level - 1] && player.coinsCount >= upgradeCosts[level - 1]) {
-        player.tokensCount -= upgradeTokensReq[level - 1];
-        player.coinsCount -= upgradeCosts[level - 1];
-        ability.level += 1;
-        if (ability.name === 'bMap') {
-          player.bMap.level++;
-        } else if (ability.name === 'bSpeed') {
-          player.bSpeed.level++;
-        }
-        updateInventory(inventoryArray,player.coinsCount)
-        updateCoinsCount()
-        updateTokensCount()
-        togglePopup()
-        togglePopup()
-      }
-      else {
-          showMessages("You do not meet the requirements to upgrade the ability.")
-      }
-    };
-
-    // Add upgrade button to ability item
-    abilityItem.appendChild(upgradeButton);
-
-    // Add ability item to ability list
-    abilityList.appendChild(abilityItem);
+    noAbilitiesAvailable.appendChild(upgradeImage);
+    noAbilitiesAvailable.appendChild(notAvailableMessage);
+    popup.appendChild(noAbilitiesAvailable);
   }
-  // Add ability list to popup
-  popup.appendChild(abilityList);
+  else {
+    // Add title to popup
+    const title = document.createElement('div');
+    title.style.fontSize = '30px'
+    title.style.textDecoration = 'underline';
+    title.textContent = 'Available Abilities';
+    title.style.textAlign = 'center';
+    popup.appendChild(title);
+    
+    // Add ability list to popup
+    const abilityList = document.createElement('ul');
+    abilityList.style.listStyleType = 'none';
+    abilityList.style.margin = '0';
+    abilityList.style.padding = '0';
+    abilityList.style.height = '80%';
+    abilityList.style.overflow = 'auto';
+
+    // Loop through inventoryArray and add abilities to list
+    for (let i = 0; i < inventoryArray.length; i++) {
+      const ability = inventoryArray[i];
+      const abilityItem = document.createElement('li');
+      abilityItem.style.display = 'flex';
+      abilityItem.style.alignItems = 'center';
+      abilityItem.style.margin = '10px 0';
+      
+      // Add image to ability item
+      const imageWrapper = document.createElement('div');
+      imageWrapper.style.marginRight = '20px';
+      const image = document.createElement('img');
+      if (ability.name === 'Speed') {
+        image.src = speedImages[ability.level - 1];
+      } else if (ability.name === 'Map') {
+        image.src = mapImages[ability.level - 1];
+      }
+      image.style.width = '50px';
+      image.style.height = '50px';
+      imageWrapper.appendChild(image);
+      abilityItem.appendChild(imageWrapper);
+      
+      // Add ability name to ability item
+      const abilityName = document.createElement('div');
+      abilityName.textContent = ability.name;
+      abilityName.style.fontSize = '20px';
+      abilityItem.appendChild(abilityName);
+      
+      
+      
+      // Add upgrade button to ability item
+      const upgradeButton = document.createElement('button');
+      const level = ability.level;
+      if (level === 1) {
+        upgradeButton.innerHTML = ` Upgrade <img src="assets/icons/coin.svg" alt="coin" height="16px" style="border-radius: 50%; -webkit-filter:grayscale(100%); vertical-align: middle; margin-top: -4px;"> ${upgradeCosts[0]} <img src="assets/icons/upgrade.svg" alt="upgrade tokens" height="16px" style="border-radius: 50%;filter: grayscale(100%); -webkit-filter: grayscale(100%); vertical-align: middle; margin-top: -4px;"> ${upgradeTokensReq[0]}`;
+      } else if (level === 2) {
+        upgradeButton.innerHTML = ` Upgrade <img src="assets/icons/coin.svg" alt="coin" height="16px" style="border-radius: 50%; -webkit-filter:grayscale(100%); vertical-align: middle; margin-top: -4px;"> ${upgradeCosts[1]} <img src="assets/icons/upgrade.svg" alt="upgrade tokens" height="16px" style="border-radius: 50%;filter: grayscale(100%); -webkit-filter: grayscale(100%); vertical-align: middle; margin-top: -4px;"> ${upgradeTokensReq[1]}`;
+      } else if (level === 3) {
+        upgradeButton.textContent = 'Max Level';
+        upgradeButton.disabled = true;
+        upgradeButton.style.backgroundColor = 'grey';
+      }
+
+      //upgradeButton.style.backgroundColor = '#4C4C4c';
+      upgradeButton.style.border = '3px solid black'
+      upgradeButton.style.color = 'black';
+      upgradeButton.style.padding = '8px 12px';
+      upgradeButton.style.textAlign = 'center';
+      upgradeButton.style.textDecoration = 'none';
+      upgradeButton.style.display = 'inline-block';
+      upgradeButton.style.fontSize = '16px';
+      upgradeButton.style.marginLeft = '20px'
+      upgradeButton.style.right = '150px'
+      upgradeButton.classList.add("upgradeButton")
+      upgradeButton.style.borderRadius = '10px'
+      abilityItem.appendChild(upgradeButton);
+    
+      upgradeButton.onclick = function() {
+        if (player.tokensCount >= upgradeTokensReq[level - 1] && player.coinsCount >= upgradeCosts[level - 1]) {
+          player.tokensCount -= upgradeTokensReq[level - 1];
+          player.coinsCount -= upgradeCosts[level - 1];
+          ability.level += 1;
+          if (ability.name === 'bMap') {
+            player.bMap.level++;
+          } else if (ability.name === 'bSpeed') {
+            player.bSpeed.level++;
+          }
+          updateInventory(inventoryArray,player.coinsCount)
+          updateCoinsCount()
+          updateTokensCount()
+          togglePopup()
+          togglePopup()
+        }
+        else {
+            showMessages("You do not meet the requirements to upgrade the ability.")
+        }
+      };
+
+      // Add upgrade button to ability item
+      abilityItem.appendChild(upgradeButton);
+
+      // Add ability item to ability list
+      abilityList.appendChild(abilityItem);
+    }
+    // Add ability list to popup
+    popup.appendChild(abilityList);
+  }
   document.body.appendChild(popup);
 }
-
 
 
 function deletePopup() {
@@ -1278,7 +1296,6 @@ function togglePopup() {
       showAbilitiesPopup();
       popupEnabled = true
   } else {
-      
     controls.lock();
     deletePopup()
     popupEnabled = false
