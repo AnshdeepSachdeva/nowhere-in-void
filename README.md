@@ -57,10 +57,7 @@ As the developer behind the 3D game "Nowhere In Void", I am a 12th-grade student
 
 This was a wonderful learning opportunity, allowing me to familiarize myself with new techniques and technologies. It was my first experience of conceptualizing and building a game from ground up. It helped me to gain invaluable insights into game development.
 
-Fuelled by a passion for coding, gaming, and technology, this project served as the ideal amalgamation of my interests. What began as a summer project quickly evolved into a labor of love, seeing me dedicate countless hours to the game's design, coding, debugging, and refinement to provide an unparalleled gaming experience.
-
-As a devoted learner and developer, I am always open to feedback and suggestions for improvement. I eagerly anticipate hearing from you and hope you derive as much enjoyment from playing the game as I did from developing it!
-
+Fuelled by a passion for coding, gaming, and technology, this project served as the ideal amalgamation of my interests. What began as a summer project quickly evolved into a labor of love.
 
 ## Acknowledgments
 This game is developed using the Three.js library, an incredible open-source 3D library that makes it easy to create and display animated 3D computer graphics in 
