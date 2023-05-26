@@ -10,6 +10,7 @@ Welcome to **Nowhere in Void - a 3D Maze Game** for Desktop web users built in J
 - **S:** Move backward
 - **D:** Move right
 - **SPACE:** Jump
+- **Mouse/Trackpad:** Controlling direction
 
 2. **Upgrade Abilities** : Press the **Q** key to upgrade your abilities. As you progress through the levels, you will have the opportunity to collect boxes, which will grant you new abilities such as speed and map.
 
